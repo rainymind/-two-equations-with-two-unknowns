@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double a1, b1, c1, a2, b2, c2;
+    double determinant, x, y;
+
+    // Input coefficients of the first equation
+    printf("Enter coefficients of the first equation (a1, b1, c1): ");
+    scanf("%lf %lf %lf", &a1, &b1, &c1);
+
+    // Input coefficients of the second equation
+    printf("Enter coefficients of the second equation (a2, b2, c2): ");
+    scanf("%lf %lf %lf", &a2, &b2, &c2);
+
+    // Calculate determinant
+    determinant = a1 * b2 - a2 * b1;
+
+    // Check if the system of equations has a unique solution
+    if (determinant == 0) {
+        printf("The system of equations does not have a unique solution.\n");
+    } else {
+        // Calculate solution
+        x = (b2 * c1 - b1 * c2) / determinant;
+        y = (a1 * c2 - a2 * c1) / determinant;
+
+        // Output the solution
+        printf("The solution to the system of equations is x = %.2f, y = %.2f\n", x, y);
+    }
+
+    return 0;
+}
